@@ -1,24 +1,6 @@
 <?php
 session_start();
-$mensaje = isset($_SESSION["mensaje"]) ? $_SESSION["mensaje"] : "";
-unset($_SESSION["mensaje"]); // Eliminar el mensaje después de mostrarlo
-
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $edad = isset($_POST['edad']) ? trim($_POST['edad']) : "";
-
-    if (!is_numeric($edad) || $edad < 10 || $edad > 80) {
-        $_SESSION["mensaje"] = "<h1 id='mensaje'>Edad Inválida!</h1>";
-    } else {
-        $_SESSION["mensaje"] = "<h1 id='mensaje'>Edad Válida!</h1>";
-        header("Location: index.php");
-        exit;
-    }
-    header("Location: registro.php");
-    exit;
-}
-
 ?>
-
 
 <!DOCTYPE html>
 <html lang="es">
@@ -142,7 +124,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-<form action="procesar.php" method="post" class="form">
+<form action="procesar.php" method="POST" class="form">
     <p class="login">Registro Banco</p>
     <div class="inputContainer">
         <input placeholder="Nombre" type="text" class="fInput" name="nombre">
@@ -158,9 +140,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <a href="index.php">Iniciar Sesion</a>
     </div>
 </form>
-
-<!-- Se muestra el mensaje de validación -->
-<?php echo $mensaje; ?>
 
 <script>
     // Oculta el mensaje después de 5 segundos

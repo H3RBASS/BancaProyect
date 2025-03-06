@@ -1,24 +1,20 @@
 <?php
 session_start();
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = trim($_POST["usuario"]);
-    $password = trim($_POST["password"]);
-
-    if (!isset($_SESSION["usuario"])) {
-        $_SESSION["mensaje"] = "No hay usuarios registrados.";
-        header("Location: index.php");
-        exit();
+$men1= "";
+$men2= "";
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if (isset($_SESSION["UsuarioNew"]) && $_POST["usuario"] === $_SESSION["UsuarioNew"] && $_POST["password"] === $_SESSION["PasswordNew"]) 
+    {
+        $_SESSION["logueado"] = true;
+        $men1 = $_SESSION["UsuarioNew"];
+        $men2 = $_SESSION["PasswordNew"];
+        header("Location: R1.php");
+        exit;
     }
-
-    if ($usuario === $_SESSION["usuario"] && password_verify($password, $_SESSION["password"])) {
-        $_SESSION["autenticado"] = true;
-        header("Location: R1.php"); // Redirigir al área privada
-        exit();
-    } else {
-        $_SESSION["mensaje"] = "Usuario o contraseña incorrectos.";
-        header("Location: index.php");
-        exit();
+     else {
+        echo $men1;
+        echo $men2;
     }
 }
 ?>
@@ -142,12 +138,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     </style>
 </head>
 <body>
-    <form method="post" class="form">
+    <form method="POST" class="form">
         <p class="login">Iniciar Sesión</p>
         <div class="inputContainer">
             <input placeholder="Nombre de usuario" type="text" class="fInput email">
             <input placeholder="Contraseña" type="password" class="fInput pass">
-            <input type="submit" value="Siguiente" class="submit onclick="window.location.href='R1.php';>
+            <input type="submit" value="Siguiente" class="submit onclick=">
         </div>
         <button class="forget">Olvidaste tu contraseña?</button>
         <div class="con">

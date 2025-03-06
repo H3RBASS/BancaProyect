@@ -1,82 +1,37 @@
 <?php
 session_start();
 
-$mensaje = ""; // Inicializamos el mensaje vacío
+/*if ($_SERVER["REQUEST_METHOD"] === "POST") 
+{
+    $_SESSION["UsuarioNew"] = $_POST["usuario"];
+    $_SESSION["PasswordNew"] = $_POST["password"];
+    header("Location: index.php");
+    exit;
+}*/
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $usuario = trim($_POST["usuario"]);
-    $password = trim($_POST["password"]);
-    $nombre = trim($_POST["nombre"]);
-    $apellidos = trim($_POST["apellidos"]);
-    $edad = trim($_POST["edad"]);
+if ($_SERVER["REQUEST_METHOD"] === "POST") { 
+    $usuario = $_POST["usuario"]; // Capturamos el nombre de usuario ingresado
 
-    // Validar que los campos no estén vacíos
-    if (empty($usuario) || empty($password) || empty($nombre) || empty($apellidos) || empty($edad)) {
-        $mensaje = "<h1 id='mensaje'>Todos los campos son obligatorios</h1>";
-        header("Location: registro.php");
-        exit();
-    } 
-    // Validar que la edad sea un número entre 10 y 80
-    elseif (!is_numeric($edad) || $edad < 10 || $edad > 80) {
-        $mensaje = "<h1 id='mensaje'>Edad Inválida!</h1>";
-        header("Location: registro.php");
-        exit();
-    } 
-    else {
-        // Si pasa todas las validaciones, se encripta la contraseña
-        $passwordHash = password_hash($password, PASSWORD_DEFAULT);
-        
-        // Guardamos los datos en la sesión (excepto la contraseña)
-        $_SESSION["usuario"] = $usuario;
-        $_SESSION["nombre"] = $nombre;
-        $_SESSION["apellidos"] = $apellidos;
-        $_SESSION["edad"] = $edad;
-
-        $mensaje = "<h1 id='mensaje'>Registro exitoso!</h1>";
+    // 1️⃣ Verificamos si el usuario ya está registrado en la sesión
+    if (isset($_SESSION["usuarios"])) {
+        // 2️⃣ Si el usuario ya está registrado
+        if (in_array($usuario, $_SESSION["usuarios"])) {
+            // Si el usuario existe, redirigimos a la página de error
+            echo "❌ El usuario '$usuario' ya está registrado.";
+            echo "<br><a href='index.php.php'>Iniciar Sesion</a>";
+        } else {
+            // 3️⃣ Si el usuario NO existe, lo registramos
+            $_SESSION["usuarios"][] = $usuario; // Guardamos el nuevo usuario en la sesión
+            echo "✅ Usuario registrado con éxito.";
+            echo "<br><a href='verificar.php'>Verificar usuario</a>";
+        }
+    } else {
+        // Si no existen usuarios, creamos el array de usuarios
+        $_SESSION["usuarios"] = [$usuario]; // Guardamos el primer usuario
+        echo "✅ Usuario registrado con éxito.";
+        echo "<br><a href='verificar.php'>Verificar usuario</a>";
     }
 }
+
+
 ?>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Procesar Registro</title>
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #242424;
-            color: white;
-            font-family: Arial, sans-serif;
-            text-align: center;
-        }
-        .container {
-            background-color: black;
-            padding: 20px;
-            border-radius: 10px;
-        }
-        h1 { color: white; }
-        a {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: rgb(0, 136, 255);
-            color: white;
-            text-decoration: none;
-            border-radius: 10px;
-        }
-    </style>
-</head>
-<body>
-
-<div class="container">
-    <?php echo $mensaje; ?>
-    <a href="index.php">Ir a Iniciar Sesion</a>
-</div>
-
-</body>
-</html>
