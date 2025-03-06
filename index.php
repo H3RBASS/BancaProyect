@@ -1,9 +1,26 @@
 <?php
 session_start();
 
-$mensaje = "";
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $usuario = trim($_POST["usuario"]);
+    $password = trim($_POST["password"]);
 
+    if (!isset($_SESSION["usuario"])) {
+        $_SESSION["mensaje"] = "No hay usuarios registrados.";
+        header("Location: index.php");
+        exit();
+    }
 
+    if ($usuario === $_SESSION["usuario"] && password_verify($password, $_SESSION["password"])) {
+        $_SESSION["autenticado"] = true;
+        header("Location: R1.php"); // Redirigir al área privada
+        exit();
+    } else {
+        $_SESSION["mensaje"] = "Usuario o contraseña incorrectos.";
+        header("Location: index.php");
+        exit();
+    }
+}
 ?>
 
 <!DOCTYPE html>

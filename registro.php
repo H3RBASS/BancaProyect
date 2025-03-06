@@ -1,30 +1,22 @@
 <?php
 session_start();
+$mensaje = isset($_SESSION["mensaje"]) ? $_SESSION["mensaje"] : "";
+unset($_SESSION["mensaje"]); // Eliminar el mensaje después de mostrarlo
 
-
-// Inicializamos la variable para el mensaje de validación
-$mensaje = "";
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-    $ADM_usuario = trim($_POST["usuario"]);
-    $ADM_contraseña = $_POST["password"];
-    $ADM_nombre = $_POST["nombre"];
-    $ADMa_pellidos = $_POST["apellidos"];
-    $ADM_edad = $_POST["edad"];
-}
-// Se valida si el formulario fue enviado
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Obtenemos la edad desde el formulario
     $edad = isset($_POST['edad']) ? trim($_POST['edad']) : "";
-    
-    // Validamos que la edad sea un número y que esté entre 10 y 80
-    if (!is_numeric($edad) || $edad < 0 || $edad > 100) {
-        $mensaje = "<h1 id='mensaje'>Edad Inválida!</h1>";
+
+    if (!is_numeric($edad) || $edad < 10 || $edad > 80) {
+        $_SESSION["mensaje"] = "<h1 id='mensaje'>Edad Inválida!</h1>";
     } else {
-        $mensaje = "<h1 id='mensaje'>Edad Válida!</h1>";
-        header("Location: login.php");
+        $_SESSION["mensaje"] = "<h1 id='mensaje'>Edad Válida!</h1>";
+        header("Location: index.php");
+        exit;
     }
+    header("Location: registro.php");
+    exit;
 }
+
 ?>
 
 
@@ -163,7 +155,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <button type="button" class="forget">Olvidaste tu contraseña?</button>
     <div class="con">
         <p>Ya tienes una cuenta?&nbsp;</p>
-        <a href="login.php">Iniciar Sesion</a>
+        <a href="index.php">Iniciar Sesion</a>
     </div>
 </form>
 
