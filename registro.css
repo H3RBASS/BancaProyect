@@ -4,16 +4,15 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
 }
-h1
-{
-    color: rgb(255, 255, 255);
-}
+
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #242424;
+    background-image: url('https://github.com/H3RBASS/imagenes/blob/main/fondo.jpg?raw=true');
+    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+    background-position: center; /* Centra la imagen */
 }
 
 .form {
@@ -23,7 +22,7 @@ body {
     flex-direction: column;
     width: 400px;
     padding: 50px;
-    background-color: rgb(0, 0, 0);
+    background-color: rgb(10, 10, 10);
     border-radius: 20px;
 }
 
