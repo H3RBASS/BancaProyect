@@ -1,8 +1,17 @@
 <?php
 session_start();
+include "data.php";
 //mensaje borrar
 $mensaje = "";
-$persona1 = "";
+
+$NomPersona = "";
+if(isset($_SESSION["Persona"])){
+
+    $persona1 = unserialize(data: $_SESSION["Persona"]);
+    $NomPersona = $persona1->Nombre;
+}
+
+
 if (isset($_SESSION["mensaje"])) {
     $mensaje = $_SESSION["mensaje"];
     unset($_SESSION["mensaje"]); // Elimina el mensaje para que no persista en recargas
@@ -37,8 +46,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
     <form action="index.php" method="POST" class="form">
         <p class="login">Iniciar Sesión</p>
-        <?php echo $persona1 ?>
         <div class="inputContainer">
+            <?php echo $NomPersona?>
             <input placeholder="Nombre de usuario" type="text" class="fInput email" name="usuario">
             <input placeholder="Contraseña" type="password" class="fInput pass" name="password"> 
             <input type="submit" value="Iniciar Sesion" class="submit">
