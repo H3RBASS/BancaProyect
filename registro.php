@@ -1,5 +1,11 @@
 <?php
 session_start();
+
+if (isset($_SESSION["mensaje"])) {
+    $mensaje = $_SESSION["mensaje"];
+    unset($_SESSION["mensaje"]); // Elimina el mensaje para que no persista en recargas
+}
+//registra al usuario
 if ($_SERVER["REQUEST_METHOD"] == "POST") 
 {
     $_SESSION["usuario"] = trim($_POST["usuario"]);
@@ -22,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 </head>
 <body>
 <form action="registro.php" method="POST" class="form">
-    <p class="login">Registro Banco</p>
+    <p class="login">Registro</p>
     <div class="inputContainer">
         <input placeholder="Nombre de usuario" type="text" class="fInput" name="usuario">
         <input placeholder="Contraseña" type="password" class="fInput" name="password">

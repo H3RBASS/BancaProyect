@@ -39,9 +39,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
         <div class="inputContainer">
             <input placeholder="Nombre de usuario" type="text" class="fInput email" name="usuario">
             <input placeholder="Contraseña" type="password" class="fInput pass" name="password"> 
-            <input type="submit" value="Siguiente" class="submit">
+            <input type="submit" value="Iniciar Sesion" class="submit">
         </div>
-        <button class="forget">Olvidaste tu contraseña?</button>
         <div class="con">
             <p>No tienes una cuenta?&nbsp;</p>
             <a href="registro.php">Registrate</a>
