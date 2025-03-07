@@ -1,5 +1,6 @@
 <?php
 session_start();
+include "data.php";
 
 if (isset($_SESSION["mensaje"])) {
     $mensaje = $_SESSION["mensaje"];
@@ -14,6 +15,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     echo "Registro exitoso. <a href='index.php'>Ir al login</a>";
     exit();
 }
+
+
+$ComboCuenta = "<select name='CboCuenta' class='fselect'>";
+    
+foreach($ListaCuenta as $cuenta)
+{
+    $ComboCuenta .= "<option value='". $cuenta->idTipoCuenta ."'>". $cuenta->TipoCuenta ."</option>";
+}
+$ComboCuenta .= "</select>";
+
 ?>
 
 <!DOCTYPE html>
@@ -32,6 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <div class="inputContainer">
         <input placeholder="Nombre de usuario" type="text" class="fInput" name="usuario">
         <input placeholder="Contraseña" type="password" class="fInput" name="password">
+        <?php echo $ComboCuenta ?>
         <input type="submit" value="Registro" class="submit">
     </div>
     <div class="con">
