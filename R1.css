@@ -1,0 +1,80 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #323232;
+    background-image: url('https://github.com/H3RBASS/imagenes/blob/main/fondo.jpg?raw=true');
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+
+/* Barra superior */
+.barra-superior {
+    width: 100%; /* Esto hace que ocupe todo el ancho */
+    background-color: #000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos: el título a la izquierda y los botones a la derecha */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-banco {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navegacion ul li {
+    display: inline-block;
+}
+
+.navegacion ul li a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.navegacion ul li a:hover {
+    background-color: rgb(0, 136, 255);
+}
+
+/* Estilos para el contenido principal */
+.contenido {
+    width: 80%;
+    max-width: 900px;
+    padding: 40px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+h2 {
+    font-size: 28px;
+    color: rgb(0, 136, 255);
+}
+
+p {
+    font-size: 18px;
+    color: #bbb;
+}
