@@ -38,11 +38,15 @@ $ComboCuenta .= "</select>";
 
 </head>
 <body>
-<form action="registro.php" method="POST" class="form">
+<form action="registro-save.php" method="POST" class="form">
     <p class="login">Registro</p>
     <div class="inputContainer">
         <input placeholder="Nombre de usuario" type="text" class="fInput" name="usuario">
         <input placeholder="Contraseña" type="password" class="fInput" name="password">
+        <input placeholder="Nombre Completo" type="text" class="fInput" name="nombreC">
+        <input placeholder="Apellidos" type="text" class="fInput" name="apellidos">
+        <input placeholder="Edad" type="text" class="fInput" name="edad">
+        <input placeholder="Correo" type="text" class="fInput" name="correo">
         <?php echo $ComboCuenta ?>
         <input type="submit" value="Registro" class="submit">
     </div>

@@ -24,4 +24,21 @@ $ListaCuenta = array();
 $ListaCuenta[] = $OTC;
 $ListaCuenta[] = $OTC1;
 
+class Data_Persona
+{
+    public $idPersona;
+    public $Edad;
+    public $Nombre;
+    public $Apellidos;
+    public $Correo;
+
+    function __construct()
+    {
+        $this->idPersona ="";
+        $this->Edad ="";
+        $this->Nombre ="";
+        $this->Apellidos ="";
+        $this->Correo ="";
+    }
+}
 ?>
