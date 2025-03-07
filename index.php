@@ -2,6 +2,7 @@
 session_start();
 //mensaje borrar
 $mensaje = "";
+$persona1 = "";
 if (isset($_SESSION["mensaje"])) {
     $mensaje = $_SESSION["mensaje"];
     unset($_SESSION["mensaje"]); // Elimina el mensaje para que no persista en recargas
@@ -36,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 <body>
     <form action="index.php" method="POST" class="form">
         <p class="login">Iniciar Sesión</p>
+        <?php echo $persona1 ?>
         <div class="inputContainer">
             <input placeholder="Nombre de usuario" type="text" class="fInput email" name="usuario">
             <input placeholder="Contraseña" type="password" class="fInput pass" name="password"> 

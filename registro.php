@@ -11,8 +11,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $_SESSION["usuario"] = trim($_POST["usuario"]);
     $_SESSION["password"] = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT); // Guardar contraseña encriptada
-
-    echo "Registro exitoso. <a href='index.php'>Ir al login</a>";
+    header("Location: index.php");
     exit();
 }
 
@@ -38,7 +37,7 @@ $ComboCuenta .= "</select>";
 
 </head>
 <body>
-<form action="registro-save.php" method="POST" class="form">
+<form action="registro_save.php" method="POST" class="form">
     <p class="login">Registro</p>
     <div class="inputContainer">
         <input placeholder="Nombre de usuario" type="text" class="fInput" name="usuario">
