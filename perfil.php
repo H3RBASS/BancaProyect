@@ -36,11 +36,11 @@ if (isset($_SESSION['CuentaSeleccionada']))
 
     <!-- Barra superior -->
     <div class="barra-superior">
-        <div class="titulo-banco">BANCO - PERFIL</div>
+        <div class="titulo-banco">BANCO</div>
         <div class="navegacion">
             <ul>
                 <li><a href="R1.php">Inicio</a></li>
-                <li><a href="#">Transacciones</a></li>
+                <li><a href="R2.php">Transacciones</a></li>
                 <li><a href="index.php?logout=true">Salir</a></li> <!-- Enlace para cerrar sesión -->
             </ul>
         </div>
@@ -48,6 +48,7 @@ if (isset($_SESSION['CuentaSeleccionada']))
 
     <!-- Contenido principal -->
     <div class="contenido">
+        <h2 class="txtWlcm">Bienvenido a Perfil <?php echo $NomPersona; ?></h2>
         <img src="https://github.com/H3RBASS/imagenes/blob/main/profile-icon-design-free-vector.jpg?raw=true" alt="Image Profile" class="profile">
         <h1 class="txtWlcm">Datos Personales</h1>
         <p>Nombre: <?php echo $NPersona ?></p>

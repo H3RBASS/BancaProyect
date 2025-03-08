@@ -3,10 +3,12 @@ session_start();
 include "data.php";
 
 $NomPersona = "";
+$APersona = "";
 if(isset($_SESSION["Persona"])){
 
     $persona1 = unserialize(data: $_SESSION["Persona"]);
     $NomPersona = $persona1->Nombre;
+    $APersona = $persona1->Apellidos;
 }
 
 if (isset($_GET['logout'])) {
@@ -37,7 +39,7 @@ if (isset($_GET['logout'])) {
         <div class="navegacion">
             <ul>
                 <li><a href="perfil.php">Perfil</a></li>
-                <li><a href="#">Transacciones</a></li>
+                <li><a href="R2.php">Transacciones</a></li>
                 <li><a href="index.php?logout=true">Salir</a></li> <!-- Enlace para cerrar sesión -->
             </ul>
         </div>
@@ -46,10 +48,16 @@ if (isset($_GET['logout'])) {
     <!-- Contenido principal -->
     <div class="contenido">
         <h2 class="txtWlcm">Bienvenido al Banco <?php echo $NomPersona; ?></h2>
-        <p>Aquí puedes gestionar tus transacciones, ver tu perfil y mucho más.</p>
+        <img src="https://github.com/H3RBASS/imagenes/blob/main/depositphotos_317853124-stock-illustration-bank-icon-symbol-on-gray.jpg?raw=true" alt="Image Profile" class="profile">
+        <p>Aquí puedes gestionar tus transacciones <br>
+            Ver tu Perfil <br>
+            Realizar depositos y retiros.
+        </p>
+        <br>
+        <h3 class="txtWlcm">Nro de Cuenta: 102030123987</h3>
+        <h3><?php echo $NomPersona, $APersona ?> </h3>
         <div>
-            <button class="action-btn">Depositar</button>
-            <button class="action-btn">Retirar</button>
+            <button class="action-btn">Contactar Soporte</button>
         </div>
     </div>
 </body>

@@ -47,7 +47,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
     <form action="index.php" method="POST" class="form">
         <p class="login">Iniciar Sesión</p>
         <div class="inputContainer">
-            <?php echo $NomPersona?>
             <input placeholder="Nombre de usuario" type="text" class="fInput email" name="usuario">
             <input placeholder="Contraseña" type="password" class="fInput pass" name="password"> 
             <input type="submit" value="Iniciar Sesion" class="submit">

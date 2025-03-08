@@ -1,0 +1,204 @@
+/* Estilos globales */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #323232;
+    background-image: url('https://github.com/H3RBASS/imagenes/blob/main/fondo.jpg?raw=true');
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 100vh;
+}
+.txtWlcm {
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+/* Barra superior */
+.barra-superior {
+    width: 100%; /* Esto hace que ocupe todo el ancho */
+    background-color: #000;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between; /* Espacia los elementos: el título a la izquierda y los botones a la derecha */
+    align-items: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+.titulo-banco {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.navegacion ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navegacion ul li {
+    display: inline-block;
+}
+
+.navegacion ul li a {
+    color: white;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    transition: background-color 0.3s;
+}
+
+.navegacion ul li a:hover {
+    background-color: rgb(0, 136, 255);
+}
+
+/* Estilos para el contenido principal */
+.contenido {
+    width: 80%;
+    max-width: 900px;
+    padding: 40px;
+    margin-top: 20px;
+    text-align: center;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+}
+.action-btn{
+    width: 15%;
+    height: 50px;
+    border-radius: 15px;
+    border: 3px solid rgb(71, 71, 71);
+    background-color: rgb(33, 33, 33);
+    padding: 10px;
+    margin-top: 5%;
+    color: white;
+    transition: .1s;
+    cursor: pointer;
+}
+.action-btn:focus {
+    outline: none;
+    border: 1px solid rgb(0, 136, 255);
+    
+}
+.action-btn:hover {
+    background-color: rgb(60, 60, 60);
+    opacity: 0.9;
+}
+
+p {
+    font-size: 18px;
+    color: #bbb;
+}
+.profile{
+    width: 130px;
+    height: auto;
+    border-radius: 15px;
+}
+.form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 400px;
+    padding: 50px;
+    background-color: rgb(10, 10, 10);
+    border-radius: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 35px;
+}
+
+.login {
+    width: 100%;
+    color: white;
+    font-weight: 700;
+    font-size: 20px;
+    text-align: center;
+    padding-bottom: 20px;
+}
+
+.inputContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column; /* Alinea los inputs verticalmente */
+    gap: 15px; /* Espacio entre los campos */
+}
+
+.fInput {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+    border: 3px solid rgb(50, 50, 50);
+    background-color: rgb(33, 33, 33);
+    padding: 10px;
+    color: white;
+    transition: .1s;
+}
+
+.fInput:focus {
+    outline: none;
+    border: 1px solid rgb(0, 136, 255);
+}
+
+.submit {
+    width: 40%;
+    padding: 10px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+    background-color: rgb(0, 136, 255);
+    color: white;
+    border: none;
+    margin-top: 20px;
+}
+
+.submit:hover {
+    opacity: 0.9;
+}
+
+.forget {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.151);
+    padding: 7px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: .3s;
+    margin: 10px 0;
+}
+
+.forget:hover {
+    background-color: rgba(255, 255, 255, 0.151);
+}
+
+.con {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: rgb(111, 103, 103);
+    font-size: 13px;
+    margin-top: 15px;
+}
+
+.con a {
+    color: rgb(0, 136, 255);
+    text-decoration: none;
+}
+
+.con a:hover {
+    text-decoration: underline;
+}

@@ -77,7 +77,7 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
 }
 .action-btn{
-    width: 15%;
+    width: 20%;
     height: 50px;
     border-radius: 15px;
     border: 3px solid rgb(71, 71, 71);
@@ -101,4 +101,9 @@ body {
 p {
     font-size: 18px;
     color: #bbb;
+}
+.profile{
+    width: 130px;
+    height: auto;
+    border-radius: 15px;
 }
