@@ -6,24 +6,14 @@ if (isset($_SESSION["mensaje"])) {
     $mensaje = $_SESSION["mensaje"];
     unset($_SESSION["mensaje"]); // Elimina el mensaje para que no persista en recargas
 }
-//registra al usuario
-if ($_SERVER["REQUEST_METHOD"] == "POST") 
-{
-    $_SESSION["usuario"] = trim($_POST["usuario"]);
-    $_SESSION["password"] = password_hash(trim($_POST["password"]), PASSWORD_DEFAULT); // Guardar contraseña encriptada
-    header("Location: index.php");
-    exit();
-}
 
-
-$ComboCuenta = "<select name='CboCuenta' class='fselect'>";
+$ComboCuenta = "<form method='POST'><select name='CboCuenta' class='fselect'>";
     
 foreach($ListaCuenta as $cuenta)
 {
     $ComboCuenta .= "<option value='". $cuenta->idTipoCuenta ."'>". $cuenta->TipoCuenta ."</option>";
 }
 $ComboCuenta .= "</select>";
-
 ?>
 
 <!DOCTYPE html>
