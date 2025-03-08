@@ -108,3 +108,24 @@ body {
 .con a:hover {
     text-decoration: underline;
 }
+/* Estilos para el footer */
+.footer {
+    color: #fff; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 15px 0; /* Espaciado interno */
+    font-family: 'Poppins', sans-serif; /* Fuente */
+    font-size: 14px; /* Tamaño de la fuente */
+    position: fixed; /* Fijar el footer en la parte inferior */
+    left: 0;
+    bottom: 0;
+    width: 100%; /* Ancho completo */
+}
+
+.footer-content {
+    margin: 0 auto; /* Centrar el contenido */
+}
+
+.footer p {
+    margin: 0; /* Eliminar margen predeterminado del párrafo */
+}
+

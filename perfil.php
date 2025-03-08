@@ -57,5 +57,10 @@ if (isset($_SESSION['CuentaSeleccionada']))
         <p>Edad: <?php echo $EPersona ?></p>
         <p>Tipo de Cuenta: <?php echo $cuentaSeleccionada ?></p>
     </div>
+    <footer class="footer">
+            <div class="footer-content">
+                <p>Desarrollado por Brian Herbas 2025 - Todos los derechos reservados</p>
+            </div>
+    </footer>
 </body>
 </html>

@@ -124,3 +124,26 @@ body {
 .con a:hover {
     text-decoration: underline;
 }
+/* Estilos para el footer */
+.footer {
+    color: #fff; /* Color del texto */
+    text-align: center; /* Centrar el texto */
+    padding: 15px 0; /* Espaciado interno */
+    font-family: 'Poppins', sans-serif; /* Fuente */
+    font-size: 14px; /* Tamaño de la fuente */
+    width: 100%; /* Ancho completo */
+    margin-top: auto; /* Empuja el footer al final */
+}
+
+.footer-content {
+    max-width: 1200px; /* Ancho máximo del contenido */
+    margin: 0 auto; /* Centrar el contenido */
+}
+
+.footer p {
+    margin: 0; /* Eliminar margen predeterminado del párrafo */
+}
+.main-r{
+    padding-top: 50%;
+    padding-top: 50px;
+}

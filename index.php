@@ -56,5 +56,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")
             <a href="registro.php">Registrate</a>
         </div>
     </form>
+    <footer class="footer">
+            <div class="footer-content">
+                <p>Desarrollado por Brian Herbas 2025 - Todos los derechos reservados</p>
+            </div>
+    </footer>
 </body>
 </html>

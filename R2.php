@@ -4,16 +4,35 @@ include "data.php";
 
 $NomPersona = "";
 $APersona = "";
-if(isset($_SESSION["Persona"])){
+$saldo = 100; // Saldo inicial
 
-    $persona1 = unserialize(data: $_SESSION["Persona"]);
+if(isset($_SESSION["Persona"])){
+    $persona1 = unserialize($_SESSION["Persona"]);
     $NomPersona = $persona1->Nombre;
     $APersona = $persona1->Apellidos;
 }
 
+// Inicializar el saldo en la sesión si no está definido
+if (!isset($_SESSION['saldo'])) {
+    $_SESSION['saldo'] = $saldo;
+}
+
+// Procesar depósitos y retiros
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    if (isset($_POST['deposito'])) {
+        $monto = floatval($_POST['monto']);
+        if ($monto > 0) {
+            $_SESSION['saldo'] += $monto;
+        }
+    } elseif (isset($_POST['retiro'])) {
+        $monto = floatval($_POST['monto']);
+        if ($monto > 0 && $monto <= $_SESSION['saldo']) {
+            $_SESSION['saldo'] -= $monto;
+        }
+    }
+}
 
 if (isset($_GET['logout'])) {
-    
     // Destruir la sesión
     session_destroy();
     
@@ -55,15 +74,19 @@ if (isset($_GET['logout'])) {
             <div class="inputContainer">
                 <h3><?php echo $NomPersona, $APersona ?></h3>
                 <h3 class="txtWlcm">Nro de Cuenta: 102030123987</h3>
-                <input placeholder="Monto" type="number" class="fInput email" name="monto">
+                <h3 class="txtWlcm">Saldo Actual: $<?php echo number_format($_SESSION['saldo'], 2); ?></h3>
+                <input placeholder="Monto" type="number" class="fInput email" name="monto" step="0.01" required>
                 <div>
                     <input type="submit" value="Depositar" class="submit" name="deposito">
-                    <input type="submit" value="Retirar" class="submit"name="retiro">
+                    <input type="submit" value="Retirar" class="submit" name="retiro">
                 </div>
             </div>
         </form>
     </div>
+    <footer class="footer">
+            <div class="footer-content">
+                <p>Desarrollado por Brian Herbas 2025 - Todos los derechos reservados</p>
+            </div>
+    </footer>
 </body>
 </html>
-
-
